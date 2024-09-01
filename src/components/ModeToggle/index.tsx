@@ -3,7 +3,8 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
-import { Brightness4, Brightness7 } from "@mui/icons-material";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 export function ModeToggle() {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -24,7 +25,11 @@ export function ModeToggle() {
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
       color="inherit"
     >
-      {currentTheme === "dark" ? <Brightness4 /> : <Brightness7 />}
+      {currentTheme === "dark" ? (
+        <DarkModeOutlinedIcon />
+      ) : (
+        <LightModeOutlinedIcon />
+      )}
     </IconButton>
   );
 }
