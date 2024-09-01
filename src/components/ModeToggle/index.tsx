@@ -9,13 +9,12 @@ export function ModeToggle() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // This useEffect ensures that the component only renders when the client is mounted
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) {
-    return null; // Avoid server-side mismatch with client-side rendering
+    return null;
   }
 
   const currentTheme = theme === "system" ? systemTheme : theme;
@@ -25,7 +24,7 @@ export function ModeToggle() {
       onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
       color="inherit"
     >
-      {currentTheme === "dark" ? <Brightness7 /> : <Brightness4 />}
+      {currentTheme === "dark" ? <Brightness4 /> : <Brightness7 />}
     </IconButton>
   );
 }
